@@ -23,13 +23,13 @@ const CourseCard: FC<CourseCardProps> = ({
   thumbnail,
   title,
   description,
-  price=200,
+  price = 200,
   instructor,
   onClick,
   editable,
 }) => {
   const router = useRouter();
-  const onEditCourse = (e) => {
+  const onEditCourse = (e: { stopPropagation: () => void; }) => {
     e.stopPropagation();
     // router.replace(`/account/my-teaches/edit-course/${id}`);
   };

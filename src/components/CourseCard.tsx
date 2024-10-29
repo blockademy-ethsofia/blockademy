@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import styles from './CourseCard.module.css';
 
-interface Course {
+export interface Course {
     id: string;
     thumbnail: string;
     title: string;

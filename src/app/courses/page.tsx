@@ -14,7 +14,7 @@ type CoursesProps = {
     courses: Course[];
 };
 
-const Courses: React.FC<CoursesProps> = ({ courses }) => {
+const Courses: React.FC<any> = ({ courses }) => {
 
     return (
         <div className="flex flex-col h-screen justify-center mx-auto ">
@@ -22,7 +22,7 @@ const Courses: React.FC<CoursesProps> = ({ courses }) => {
                 <section className={styles.courses}>
                     <h2>Popular Courses</h2>
                     <div className={styles.courseGrid}>
-                        {courses.map(course => (
+                        {courses && courses.map((course: any) => (
                             <div key={course.id} className={styles.courseCard}>
                                 <CourseCard course={course} />
                             </div>

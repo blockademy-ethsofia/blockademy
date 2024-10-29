@@ -29,7 +29,6 @@ const ContentPage = ({ params }: { params: { id: string, contentId: string } }) 
     const { content: cachedContent, addContentToCache } = useContentStore();
     const { connector } = useUserStore();
     const { address: userAddress } = useUserStore();
-    const router = useRouter();
     const dataAddress = params.contentId;
 
     useEffect(() => {
@@ -42,7 +41,6 @@ const ContentPage = ({ params }: { params: { id: string, contentId: string } }) 
     }, [params.contentId]);
 
     const {
-        isLoading: isRentalLoading,
         data: activeRental,
     } = useQuery({
         ...activeRentalsQuery({ userAddress: userAddress as Address }),
@@ -59,11 +57,7 @@ const ContentPage = ({ params }: { params: { id: string, contentId: string } }) 
     });
 
     const {
-        isLoading,
-        isSuccess,
         data: protectedData,
-        isError,
-        error,
     } = useQuery({
         queryKey: ['protectedData', dataAddress],
         queryFn: async () => {
